@@ -4,12 +4,12 @@ import { Books01Component } from './books01/books01.component';
 
 const routes: Routes = [
   { 
-    path: 'books01', 
+    path: 'book', 
     component: Books01Component 
   },
   { 
     path: '', 
-    redirectTo: '/books01', 
+    redirectTo: '/book', 
     pathMatch: 'full' 
   }
 ];
