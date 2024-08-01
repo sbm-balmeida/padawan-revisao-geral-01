@@ -43,7 +43,7 @@ Esse comando irá instalar todas as dependencias do projeto na sua máquina.
 Depois de instalar todas as dependências execute o comando.
 
 ```
-npm serve --o
+ng serve --o
 ```
 
 Assim o seu projeto será compilado e o servidor será esecutado na url `http://localhost:4200`
