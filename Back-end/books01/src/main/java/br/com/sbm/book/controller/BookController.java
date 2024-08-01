@@ -19,7 +19,7 @@ import br.com.sbm.book.model.Book;
 import br.com.sbm.book.service.BookService;
 
 @RestController
-@RequestMapping("/api/books01")
+@RequestMapping("/api/book")
 public class BookController {
 
 	@Autowired
