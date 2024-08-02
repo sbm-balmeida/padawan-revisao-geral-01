@@ -1,36 +1,64 @@
-<h1>Books</h1>
+<div class="container">
+  <h1>Books</h1>
 
-<input type="text" [(ngModel)]="searchQuery" (input)="searchBooks()" placeholder="Buscar livro...">
+  <input class="filtro" type="text" [(ngModel)]="searchQuery"
+    (input)="searchBooks()" placeholder="Buscar livro...">
 
-<ul>
-  <li *ngFor="let book of books">
-    {{ book.title }} - {{ book.author }}
-    <button (click)="selecionarBook(book)">Editar</button>
-    <button (click)="deletarBook(book.id)">Deletar</button>
-  </li>
-</ul>
+  <div class="lista">
+    <ul>
+      <li *ngFor="let book of books">
 
-<h2>Adicionar Book</h2>
-<form (ngSubmit)="adicionarBook()">
-  <label for="title">Título:</label>
-  <input type="text" id="title" [(ngModel)]="novoBook.title" name="title">
+        {{ book.title }} - {{ book.author }}
 
-  <label for="author">Autor:</label>
-  <input type="text" id="author" [(ngModel)]="novoBook.author" name="author">
+        <div class="botoes">
+          <div class="botao_editar">
+            <button (click)="selecionarBook(book)">Editar</button>
+          </div>
 
-  <button type="submit">Adicionar</button>
-</form>
+          <div>
+            <button (click)="deletarBook(book.id)">Deletar</button>
+          </div>
+        </div>
 
-<div *ngIf="bookSelecionado">
-  <h2>Editar Book</h2>
-  <form (ngSubmit)="atualizarBook()">
-    <label for="title">Título:</label>
-    <input type="text" id="title" [(ngModel)]="bookSelecionado.title" name="title" required>
+      </li>
+    </ul>
+  </div>
 
-    <label for="author">Autor:</label>
-    <input type="text" id="author" [(ngModel)]="bookSelecionado.author" name="author" required>
+  <h2>Adicionar Book</h2>
 
-    <button type="submit">Salvar</button>
-    <button type="button" (click)="bookSelecionado = null">Cancelar</button>
+
+  <form (ngSubmit)="adicionarBook()">
+    <div class="form_add">
+      <div class="title">
+        <label for="title">Título:</label>
+        <input type="text" id="title" [(ngModel)]="novoBook.title" name="title">
+      </div>
+  
+      <div class="author">
+        <label for="author">Autor:</label>
+        <input type="text" id="author" [(ngModel)]="novoBook.author"
+          name="author">
+      </div>
+  
+      <div class="botao_add">
+        <button type="submit">Adicionar</button>
+      </div>
+    </div>
   </form>
+
+  <div *ngIf="bookSelecionado">
+    <h2>Editar Book</h2>
+    <form (ngSubmit)="atualizarBook()">
+      <label for="title">Título:</label>
+      <input type="text" id="title" [(ngModel)]="bookSelecionado.title"
+        name="title" required>
+
+      <label for="author">Autor:</label>
+      <input type="text" id="author" [(ngModel)]="bookSelecionado.author"
+        name="author" required>
+
+      <button type="submit">Salvar</button>
+      <button type="button" (click)="bookSelecionado = null">Cancelar</button>
+    </form>
+  </div>
 </div>
